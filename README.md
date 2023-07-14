@@ -5,7 +5,8 @@ El sistema también se pondra a prueba en VirtualBox
 
 ## Escaneo de Red
 
-<netdiscover>
+En primer lugar, tenemos que obtener la dirección IP del objetivo
+"netdiscover"
 
 Iniciando Nmap para avanzar en este proceso. Realizamos un escaneo agresivo (-A) para la enumeración de puertos abiertos y descubrimos la siguiente información de puertos:
 
