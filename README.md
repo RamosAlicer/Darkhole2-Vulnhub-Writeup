@@ -77,17 +77,17 @@ Email: lush@admin.com
 Password: 321
 ~~~
 
-## Eplotación
+## Explotación
 Nos logeamos en esa página, parece ser adecuada para tácticas relacionadas con la inyección de SQL.
 
 ![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/375d0afe-a663-4ae2-8ed7-7b8d8306ebf3)
 
-###BURP SUITE
+### BURP SUITE
 Entonces, usamos burpsuite para recopilar las cookies de esta página. Será ventajoso para nuestra estrategia de inyección SQL.
 
 ![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/67b83dec-2f36-473b-a4fa-3e095e98f890)
 
-###Usando SQLMAP
+### Usando SQLMAP
 Insertamos la cookie capturada anteriormente en sqlmap 
 
 ![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/a1530d38-1748-4d26-be2e-8bea8c6bd538)
