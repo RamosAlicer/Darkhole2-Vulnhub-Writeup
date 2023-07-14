@@ -6,7 +6,7 @@ El sistema se pondra a prueba en VirtualBox
 ## Escaneo de Red
 
 En primer lugar, tenemos que obtener la dirección IP del objetivo
-
+!https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/netdiscover.jpg
 ~~~
 netdiscover
 ~~~
