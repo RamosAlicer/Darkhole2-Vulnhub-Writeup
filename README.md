@@ -12,8 +12,8 @@ netdiscover
 Iniciando Nmap para avanzar en este proceso. Realizamos un escaneo agresivo (-A) para la enumeración de puertos abiertos y descubrimos la siguiente información de puertos:
 ~~~
 nmap -A 192.168.40.133
-![uso del nmap](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/nmap.jpg)
 ~~~
+![uso del nmap](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/nmap.jpg)
 De acuerdo con la salida de Nmap, tenemos:
 Un servidor SSH que se ejecuta en el puerto 22
 Un servicio HTTP ejecutándose (servidor Apache) en el puerto 80, así como una página http-git
