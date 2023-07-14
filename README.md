@@ -2,19 +2,15 @@
 Writeup de la maquina Darkhole2 de Vulnhub
 
 El sistema se pondra a prueba en VirtualBox
-
 ![descripcion](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/descripcion.jpg)
-
 ## Escaneo de Red
-
 En primer lugar, tenemos que obtener la dirección IP del objetivo
-
 ![uso del netdiscover](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/netdiscover.jpg)
 ~~~
 netdiscover
 ~~~
-
 Iniciando Nmap para avanzar en este proceso. Realizamos un escaneo agresivo (-A) para la enumeración de puertos abiertos y descubrimos la siguiente información de puertos:
+![]()
 ~~~
 nmap -A 192.168.40.133
 ~~~
@@ -23,17 +19,18 @@ Un servidor SSH que se ejecuta en el puerto 22
 Un servicio HTTP ejecutándose (servidor Apache) en el puerto 80, así como una página http-git
 
 ## Enumerar el servidor web
-
+![]()
 Debido a que el servidor Apache está escuchando en el puerto 80, podemos verificarlo inmediatamente en el navegador.
-
+![]()
 Decidimos echar un vistazo a la página de inicio de sesión
-
+![]()
 Decidimos echar un vistazo a la página http-git que descubrimos previamente durante el escaneo agresivo de Nmap.
-
+![]()
 Usamos git-dumper
 Es una herramienta para adquirir un repositorio git de un sitio web para obtener una mejor comprensión del conjunto de datos.
 Simplemente usamos la función de clonación de git.
 Creamos un directorio para nuestro respaldo .git
+![]()
 ~~~
 cd darkhole2
 git clone https://github.com/arthaud/git-dumper.git
