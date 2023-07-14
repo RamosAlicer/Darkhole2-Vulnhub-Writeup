@@ -1,6 +1,8 @@
 # Darkhole2-Vulnhub-Writeup
 Writeup de la maquina Darkhole2 de Vulnhub
+
 El sistema se pondra a prueba en VirtualBox
+
 ![descripcion](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/descripcion.jpg)
 
 ## Escaneo de Red
