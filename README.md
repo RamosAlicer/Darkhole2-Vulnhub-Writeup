@@ -9,7 +9,7 @@ El sistema se pondra a prueba en VirtualBox
 
 En primer lugar, tenemos que obtener la dirección IP del objetivo
 
-![uso del netdiscover](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/netdiscover.jpg)
+![uso del netdiscover](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/netdiscover.jpg)
 ~~~
 netdiscover
 ~~~
