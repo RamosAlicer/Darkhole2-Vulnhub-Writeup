@@ -10,9 +10,9 @@ En primer lugar, tenemos que obtener la dirección IP del objetivo
 netdiscover
 ~~~
 Iniciando Nmap para avanzar en este proceso. Realizamos un escaneo agresivo (-A) para la enumeración de puertos abiertos y descubrimos la siguiente información de puertos:
-![]()
 ~~~
 nmap -A 192.168.40.133
+![uso del nmap](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/nmap.jpg)
 ~~~
 De acuerdo con la salida de Nmap, tenemos:
 Un servidor SSH que se ejecuta en el puerto 22
