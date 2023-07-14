@@ -1,13 +1,15 @@
 # Darkhole2-Vulnhub-Writeup
 Writeup de la maquina Darkhole2 de Vulnhub
 
-El sistema también se pondra a prueba en VirtualBox
+El sistema se pondra a prueba en VirtualBox
 
 ## Escaneo de Red
 
 En primer lugar, tenemos que obtener la dirección IP del objetivo
 
-<netdiscover>
+~~~
+netdiscover
+~~~
 
 Iniciando Nmap para avanzar en este proceso. Realizamos un escaneo agresivo (-A) para la enumeración de puertos abiertos y descubrimos la siguiente información de puertos:
 
