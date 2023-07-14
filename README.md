@@ -35,7 +35,7 @@ Usamos git-dumper
 Es una herramienta para adquirir un repositorio git de un sitio web para obtener una mejor comprensión del conjunto de datos.
 Simplemente usamos la función de clonación de git.
 Creamos un directorio para nuestro respaldo .git
-![vista gitclone](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/git.clone.jpg)
+![vista gitclone](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/gitclone.jpg)
 ~~~
 cd darkhole2
 git clone https://github.com/arthaud/git-dumper.git
