@@ -47,7 +47,7 @@ mkdir backup
 Después de descargar la herramienta, intentamos ejecutarla con python .
 ![vista gitlog](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/gitdumpe%20python.jpg)
 ~~~
-python3 git_dumper.py http://192.168.40.133/.git/ backu
+python3 git_dumper.py http://192.168.40.133/.git/ backup
 ~~~
 
 Después de eso, accedimos al directorio de respaldo y el archivo de registro tenía tres entradas. Usando git, abrimos una de las entradas para progresar en este laboratorio.
